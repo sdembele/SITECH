@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imagearticles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Alt</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imageArticle in imageArticles %}
+            <tr>
+                <td><a href="{{ path('imagearticle_show', { 'id': imageArticle.id }) }}">{{ imageArticle.id }}</a></td>
+                <td>{{ imageArticle.url }}</td>
+                <td>{{ imageArticle.alt }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('imagearticle_show', { 'id': imageArticle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('imagearticle_edit', { 'id': imageArticle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('imagearticle_new') }}">Create a new imageArticle</a>
+        </li>
+    </ul>
+{% endblock %}

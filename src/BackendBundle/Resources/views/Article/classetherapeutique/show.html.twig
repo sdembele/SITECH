@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Classetherapeutique</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ classeTherapeutique.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ classeTherapeutique.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ classeTherapeutique.description }}</td>
+            </tr>
+            <tr>
+                <th>Createdby</th>
+                <td>{{ classeTherapeutique.createdBy }}</td>
+            </tr>
+            <tr>
+                <th>Creationdate</th>
+                <td>{% if classeTherapeutique.creationDate %}{{ classeTherapeutique.creationDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lastupdateby</th>
+                <td>{{ classeTherapeutique.lastUpdateBy }}</td>
+            </tr>
+            <tr>
+                <th>Lastupdatedate</th>
+                <td>{% if classeTherapeutique.lastUpdateDate %}{{ classeTherapeutique.lastUpdateDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('classetherapeutique_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('classetherapeutique_edit', { 'id': classeTherapeutique.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

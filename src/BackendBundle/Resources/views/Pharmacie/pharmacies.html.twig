@@ -1,0 +1,64 @@
+{%  extends "template.html.twig" %}
+{% block body_content %}
+    <div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+    <div class="header">
+        <h2>
+            Liste des pharmacies
+        </h2>
+        <ul class="header-dropdown m-r--5">
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">more_vert</i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Accueil</a></li>
+                    <li><a href="{{ path('pharmacie') }}" class=" waves-effect waves-block">Nouvelle Pharmacie</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+<div class="box">
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse1</th>
+                <th>Adresse2</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Fax</th>
+                <th>Bp</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+            {% for pharmacie in pharmacies %}
+                <tr>
+                    <td><a href="{{ path('pharmacie', { 'id': pharmacie.id }) }}">{{ pharmacie.id }}</a></td>
+                    <td>{{ pharmacie.nom }}</td>
+                    <td>{{ pharmacie.adresse1 }}</td>
+                    <td>{{ pharmacie.adresse2 }}</td>
+                    <td>{{ pharmacie.telephone }}</td>
+                    <td>{{ pharmacie.email }}</td>
+                    <td>{{ pharmacie.fax }}</td>
+                    <td>{{ pharmacie.bp }}</td>
+                    <td>
+                        <button type="button" class="btn btn-default"><a href="{{ path('pharmacie', { 'id': pharmacie.id }) }}"><i class="material-icons">visibility</i></a></button>
+                        <button type="button" class="btn btn-default"><a href="{{ path('pharmacie_edit', { 'id': pharmacie.id }) }}"><i class="material-icons">edit</i></a></button>
+                        <button type="button" class="btn btn-default"><a href="{{ path('pharmacie_delete', { 'id': pharmacie.id }) }}"><i class="material-icons">remove_circle_outline</i></a></button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+    </div></div></div>
+{% endblock %}

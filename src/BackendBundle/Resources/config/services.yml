@@ -1,0 +1,15 @@
+parameters:
+#    backend.example:
+#        class: BackendBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+     pharmacie_manager_class : BackendBundle\Services\PharmacieManager
+
+
+services:
+#    pharma_admin.example:
+#        class: BackendBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+     pharmacie_manager:
+        class : "%pharmacie_manager_class%"
+        arguments : ["@doctrine.orm.default_entity_manager", "@security.token_storage"]

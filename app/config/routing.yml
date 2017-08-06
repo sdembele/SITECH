@@ -1,0 +1,37 @@
+backend_image_article:
+    resource: "@BackendBundle/Controller/ImageArticleController.php"
+    type:     annotation
+
+backend_article:
+    resource: "@BackendBundle/Controller/ArticleController.php"
+    type:     annotation
+
+backend_classe_therapeutique:
+    resource: "@BackendBundle/Controller/ClasseTherapeutiqueController.php"
+    type:     annotation
+
+backend_image_art:
+    resource: "@BackendBundle/Controller/ImageArtController.php"
+    type:     annotation
+
+frontend:
+    resource: "@FrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+backend:
+    resource: "@BackendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+oc_platform:
+    resource: "@OCPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+oc_platform:
+    resource: "@OCPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform

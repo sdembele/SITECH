@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Classetherapeutiques list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Description</th>
+                <th>Createdby</th>
+                <th>Creationdate</th>
+                <th>Lastupdateby</th>
+                <th>Lastupdatedate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for classeTherapeutique in classeTherapeutiques %}
+            <tr>
+                <td><a href="{{ path('classetherapeutique_show', { 'id': classeTherapeutique.id }) }}">{{ classeTherapeutique.id }}</a></td>
+                <td>{{ classeTherapeutique.libelle }}</td>
+                <td>{{ classeTherapeutique.description }}</td>
+                <td>{{ classeTherapeutique.createdBy }}</td>
+                <td>{% if classeTherapeutique.creationDate %}{{ classeTherapeutique.creationDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ classeTherapeutique.lastUpdateBy }}</td>
+                <td>{% if classeTherapeutique.lastUpdateDate %}{{ classeTherapeutique.lastUpdateDate|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('classetherapeutique_show', { 'id': classeTherapeutique.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('classetherapeutique_edit', { 'id': classeTherapeutique.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('classetherapeutique_new') }}">Create a new classeTherapeutique</a>
+        </li>
+    </ul>
+{% endblock %}
