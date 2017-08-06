@@ -205,7 +205,7 @@ class ImageArticle
 
         // On récupère le nom original du fichier de l'internaute
         $name = $this->file->getClientOriginalName();
-        var_dump($this->getUploadRootDir());die;
+        //var_dump($this->getUploadRootDir());die;
         // On déplace le fichier envoyé dans le répertoire de notre choix
         $this->file->move($this->getUploadRootDir(), $name);
 
@@ -224,7 +224,7 @@ class ImageArticle
     protected function getUploadRootDir()
     {
         // On retourne le chemin relatif vers l'image pour notre code PHP
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
     }
 
 

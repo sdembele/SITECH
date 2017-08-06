@@ -33,9 +33,15 @@
                 <th>Aspect</th>
                 <td>{{ article.aspect }}</td>
             </tr>
+            
             <tr>
                 <th>Limitecommande</th>
                 <td>{{ article.limiteCommande }}</td>
+            </tr>
+            <tr>
+                {% if article.image is not null %}
+                    <img src="{{ asset ('uploads/img/'~article.image.url) }}" alt="{{ asset ('uploads/img/'~article.image.alt)}}">
+                {% endif %}
             </tr>
         </tbody>
     </table>
